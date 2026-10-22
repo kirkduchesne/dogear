@@ -17,7 +17,7 @@ The name comes from folding down a page corner to mark your place. Saved notes s
 
 ## Run
 
-Use Node 20, then:
+Use Node 22.23.4 (`nvm install && nvm use`), then:
 
 ```sh
 npm ci
@@ -26,7 +26,7 @@ npm run dev -- --hostname 127.0.0.1
 
 Open `http://localhost:3000`. For a production build, run `npm run build` followed by `npm start -- --hostname 127.0.0.1`.
 
-The current stack is Next.js 15.5.2, React 19.1.1, TypeScript 5.9.2, Tailwind CSS 3.4.1, lucide-react 0.542.0, and Fontsource variable fonts. Local checks used Node 20.19.0; CI pins 20.19.5.
+The current stack is Next.js 15.5.28, React 19.1.1, TypeScript 5.9.2, Tailwind CSS 3.4.1, lucide-react 0.542.0, and Fontsource variable fonts. Historical local checks used Node 20.19.0 and CI pinned 20.19.5. Current local and CI runs use the patched Node 22.23.4 baseline in `.nvmrc`.
 
 ## Browse and read
 
@@ -66,6 +66,6 @@ A repeated-query microbenchmark on the real 24-entry collection measured a media
 
 ## Scope and credits
 
-Content is authored locally in `lib/catalog.ts`. Reading-list persistence uses browser localStorage; there is no account or database. The pinned dependencies have known advisories; review and upgrade them before production deployment.
+Content is authored locally in `lib/catalog.ts`. Reading-list persistence uses browser localStorage; there is no account or database. Node 22.23.4 and Next.js 15.5.28 provide the current security baseline. The Next.js PostCSS override uses the same patched version as the direct build dependency. Some build-tool dependencies retain known advisories; review and resolve them before production deployment.
 
 The shadcn/ui Button and Input started from revision [`c21ecfb665214e18cd5914ea319f925cd676e786`](https://github.com/shadcn-ui/ui/tree/c21ecfb665214e18cd5914ea319f925cd676e786) and have since been restyled for the Dogear theme. The other primitives in `components/ui/` follow shadcn/ui patterns. The MIT notice is retained in `SHADCN-LICENSE.md`. Icon paths in `components/icons.tsx` come from Lucide (ISC).
